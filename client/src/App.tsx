@@ -1,6 +1,7 @@
 import { useState } from "react";
 import JobDashboard from "./JobDashboard";
 import "./App.css";
+import { loginUser, registerUser } from "./api";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -23,32 +24,13 @@ function App() {
     setLoading(true);
 
     try {
-      const endpoint = isRegister
-        ? "http://localhost:5000/api/auth/register"
-        : "http://localhost:5000/api/auth/login";
+      
+const result = isRegister
+  ? await registerUser(name, email, password)
+  : await loginUser(email, password);
 
-      const body = isRegister
-        ? {
-            name,
-            email,
-            password,
-          }
-        : {
-            email,
-            password,
-          };
 
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
-      });
-
-      const result = await response.json();
-
-      if (!response.ok || !result.success) {
+      if (!result.success) {
         setMessage(result.message || "Something went wrong.");
         return;
       }
