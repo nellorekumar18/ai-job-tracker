@@ -36,10 +36,14 @@ export const authenticateToken = (
 
     next();
   }  catch (error) {
-  console.error(
-    "JWT verification failed:",
-    error instanceof Error ? error.name : "Unknown error"
-  );
+  
+console.error(
+  "JWT verification failed:",
+  error instanceof Error
+    ? `${error.name}: ${error.message}`
+    : "Unknown error"
+);
+
 
   return res.status(403).json({
     success: false,
