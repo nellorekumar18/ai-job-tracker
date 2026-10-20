@@ -1,0 +1,23 @@
+# Environment secrets
+.env
+.env.*
+!.env.example
+server/.env
+client/.env
+
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+client/dist/
+server/dist/
+
+# Build output
+dist/
+
+# Uploaded resumes
+uploads/
+server/uploads/
+
+#Logs
+logs/

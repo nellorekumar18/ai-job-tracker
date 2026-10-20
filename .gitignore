@@ -1,0 +1,38 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Uploaded files
+server/uploads/
+
+# Generated Prisma client
+server/src/generated/prisma/
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Local AI coding assistant configuration
+.agents/
+.claude/
+.cursor/
+.devin/
+
+# Nested AI tool configuration
+**/.agents/
+**/.claude/
+**/.cursor/
+**/.devin/
