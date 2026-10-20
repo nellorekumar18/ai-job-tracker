@@ -35,10 +35,15 @@ export const authenticateToken = (
     req.user = decoded;
 
     next();
-  } catch (error) {
-    return res.status(403).json({
-      success: false,
-      message: "Invalid or expired token",
-    });
-  }
-};
+  }  catch (error) {
+  console.error(
+    "JWT verification failed:",
+    error instanceof Error ? error.name : "Unknown error"
+  );
+
+  return res.status(403).json({
+    success: false,
+    message: "Invalid or expired token",
+  });
+}
+ };

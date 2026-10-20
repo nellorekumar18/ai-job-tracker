@@ -68,7 +68,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-export default router;
+
 
 //login route
 router.post("/login", async (req, res) => {
@@ -132,3 +132,5 @@ router.post("/login", async (req, res) => {
      });
   }
 });
+
+export default router;
